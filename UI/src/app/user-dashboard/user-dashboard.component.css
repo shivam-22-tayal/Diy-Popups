@@ -1,0 +1,292 @@
+
+.body{
+    font-family: cursive;
+
+}
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    right: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Position and style the close button (top right corner) */
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+    transition: margin-left .5s;
+  }
+
+  
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+  h1.logo {
+    font-size: 24px;
+    color: #f2f2f2;
+    float: left;
+    margin-top: 15px;
+    font-size: 30px;
+    font-family: cursive;
+text-shadow:2px 2px #f2f2f2 ;
+}
+
+    h1.logo b {
+    font-weight: 900;
+}
+
+
+
+h1.logo span {
+    color: rgb(80, 78, 205);
+    text-shadow:3px 2px #070f11 ;
+
+}
+
+
+ #logout {
+	color: #f2f2f2;
+	font-size: 12px;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border: 1px solid #64c3c2 !important;
+	padding: 5px 15px;
+	background:  rgb(80, 78, 205);
+    margin-top:8px;
+    font-size: 17px;
+    font-weight: bolder;
+    font-family: cursive;
+    text-shadow:aliceblue;
+}
+
+ input[type=text] {
+     padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+margin-left:120px;
+
+  }
+  ul{
+    margin-left: 880px;
+
+  }
+   .search-container button {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+
+  }
+  
+  .search-container button:hover {
+    background: #ccc;
+  }
+  
+
+
+.carousel-inner img {
+    width: 500px;
+    height: 200px;
+    
+  }
+
+  
+
+/* equal card height */
+.row-equal > div[class*='col-'] {
+    display: flex;
+    flex: 1 0 auto;
+}
+
+.row-equal .card {
+   width: 100%;
+}
+
+/* ensure equal card height inside carousel */
+.carousel-inner>.row-equal.active, 
+.carousel-inner>.row-equal.next, 
+.carousel-inner>.row-equal.prev {
+    display: flex;
+}
+
+/* prevent flicker during transition */
+.carousel-inner>.row-equal.active.left, 
+.carousel-inner>.row-equal.active.right {
+    opacity: 0.5;
+    display: flex;
+}
+
+
+/* control image height */
+.card-img-top-250 {
+    max-height: 250px;
+    overflow:hidden;
+}
+
+
+.card-header{color:dodgerblue}
+
+.glyphicon-user {
+    color: #ddd;
+    font-size: 25px;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+.card-img-overlay{margin-left:50px;}
+
+.tabs-left, .tabs-right {
+    border-bottom: none;
+    padding-top: 2px;
+  }
+  .tabs-left {
+    border-right: 1px solid #ddd;
+  }
+  .tabs-right {
+    border-left: 1px solid #ddd;
+  }
+  .tabs-left>li, .tabs-right>li {
+    float: none;
+    margin-bottom: 2px;
+  }
+  .tabs-left>li {
+    margin-right: -1px;
+  }
+  .tabs-right>li {
+    margin-left: -1px;
+  }
+  .tabs-left>li.active>a,
+  .tabs-left>li.active>a:hover,
+  .tabs-left>li.active>a:focus {
+    border-bottom-color: #ddd;
+    border-right-color: transparent;
+  }
+  
+  .tabs-right>li.active>a,
+  .tabs-right>li.active>a:hover,
+  .tabs-right>li.active>a:focus {
+    border-bottom: 1px solid #ddd;
+    border-left-color: transparent;
+  }
+  .tabs-left>li>a {
+    border-radius: 4px 0 0 4px;
+    margin-right: 0;
+    display:block;
+  }
+  .tabs-right>li>a {
+    border-radius: 0 4px 4px 0;
+    margin-right: 0;
+  }
+
+  #t{
+    margin-left: 580px;
+    margin-right: 0;
+    font-size: 17px;
+   z-index: -1;
+    }
+   
+    
+    #userimg{
+        text-align: center;
+        font-family: arial;
+        margin-left: 0px;
+        margin-top: 20px;
+        margin-bottom: 600px;
+      }
+      
+      
+      html{height: 100vh;}body{    width: 100%;    height: 100vh;    background-color: #ffffff;    font-family: gothambook;    position: fixed;    top: 0;    bottom: 0;    }
+      
+      #userimg button {
+        border: none;
+        outline: 0;
+        padding: 12px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+      }
+      
+      #userimg button:hover {
+        opacity: 0.7;
+      }
+
+
+      #leftPanel{
+        background-color:#0079ac;
+        color:#fff;
+        text-align: center;
+    }
+    
+    #rightPanel{
+        min-height:415px;
+    }
+    
+    /* Credit to bootsnipp.com for the css for the color graph */
+    .colorgraph {
+      height: 5px;
+      border-top: 0;
+      background: #c4e17f;
+      border-radius: 5px;
+      background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+      background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+      background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+      background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+    }
+
+    #sideee{
+      height: 100%;
+      width: 160px;
+      position: fixed;
+      z-index: 2;
+      top: 0;
+    right: 0;
+      background-color: #111;
+      overflow-x: hidden;
+
+    }
+
+    #sideee.li{
+margin-top: 20px;
+margin-bottom: 20px;
+    }
