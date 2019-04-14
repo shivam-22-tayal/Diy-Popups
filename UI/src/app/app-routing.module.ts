@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { OwnerDashboardComponent } from './owner-dashboard/owner-dashboard.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
 const routes: Routes = [
   {path: '', component: LandingpageComponent},
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'owner-dashboard', component: OwnerDashboardComponent},
-  
+  {path: 'user-dashboard', component: UserDashboardComponent}
+
 ];
 
 @NgModule({

@@ -14,6 +14,7 @@ import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { OwnerDashboardComponent } from './owner-dashboard/owner-dashboard.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { OwnerDashboardComponent } from './owner-dashboard/owner-dashboard.compo
     RegisterComponent,
     HomeComponent,
     OwnerDashboardComponent,
+    UserDashboardComponent,
     
   ],
   imports: [
