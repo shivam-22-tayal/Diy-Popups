@@ -4,12 +4,15 @@ import { LandingpageComponent } from './landingpage/landingpage.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './_guards/auth.guard';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+
 
 const routes: Routes = [
   {path: '', component: LandingpageComponent},
   {path: 'landingpage', component: LandingpageComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent}
+  {path: 'register', component: RegisterComponent},
+  {path: 'user-dashboard', component: UserDashboardComponent}
 ];
 
 @NgModule({
