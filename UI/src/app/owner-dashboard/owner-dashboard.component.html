@@ -1,6 +1,8 @@
-
+<!DOCTYPE html>
 <html>
-  <head>user-dashboard</head>
+  <head>
+    <title>Owner-Dashboard</title>
+  </head>
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.1/css/mdb.min.css" />
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.1/js/mdb.min.js"></script>
@@ -11,54 +13,38 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
   <body>
-    
+
       <header class="header black-bg">
           <div class="sidebar-toggle-box">
             <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
           </div>
-          
-          <a routerLink="/index" class="logo"><b>DIY<span>POPUP'S</span></b></a>
-         
-<!--                                        
-              <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-               </button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">HTML</a></li>
-                  <li><a href="#">CSS</a></li>
-                  <li><a href="#">JavaScript</a></li>
-                </ul>
-             
-            </div>  -->
 
-          <!-- <div class="u"> 
-              <p  ><a href="profile.html"><img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg" class="img-circle" style="width:35px; margin-left: 15px;"></a></p>
-              <p style="color:aliceblue; margin-top: 0; ">Sam Soffes</p>
-            </div> -->
+          <a routerLink="/index" class="logo"><strong>DIY<span>POPUP'S</span></strong></a>
+
           <div class="top-menu">
             <ul class="nav pull-right top-menu">
               <li ><a class="logout" routerLink="/login">Logout</a></li>
             </ul>
-          
-        
+
+
       </div>
-        </header> 
+        </header>
 
         <div  class="col-sm-6">
             <h3>Left Tabs - Vertical Text</h3>
             <hr/>
-            
+
             <div class="col-xs-3" >
                 <!-- required for floating -->
                 <!-- Nav tabs -->
-                
+
                 <ul class="nav nav-tabs tabs-left " id="tt">
                     <li ><a href="#profile" data-toggle="tab">PROFILE</a></li>
                     <li ><a href="#profile" data-toggle="tab">PROFILE</a></li>
                     <li><a href="#addcreate" data-toggle="tab">CREATE ADD</a></li>
                     <li><a href="#viewadd" data-toggle="tab">VIEW ADD</a></li>
                     <li><a href="#credits" data-toggle="tab">CREDITS</a></li>
-                    
+
 
 
                 </ul>
@@ -80,295 +66,84 @@
                         </div>
                       </div>
                       </div>
-                    <div class="tab-pane" id="addcreate"></div>
-                    <div class="tab-pane" id="viewadd">
-                        <div class="row">
-                             <div class="col-sm-7">
-                              <div class="card">
-                                <div class="card-body">
-                                  <h5 class="card-title">Special title treatment</h5>
-                                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-sm-7">
-                              <div class="card">
-                                <div class="card-body">
-                                  <h5 class="card-title">Special title treatment</h5>
-                                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-sm-7">
+
+
+                    <div class="tab-pane" id="addcreate">
+
+                        <div class="container">
+                            <div class="row mt-5">
+                              <div class="col-md-8 mx-auto">
                                 <div class="card">
+                                  <div class="card-header">
+                                    <div class="h4 text-center">ADVERTISEMENT DETAILS</div>
+                                  </div>
+
                                   <div class="card-body">
-                                    <h5 class="card-title">Special title treatment</h5>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+
+                                    <div class="form-group">
+                                      <label for="category">CATEGORY OF ADD</label>
+                                      <input type="text" class="form-control" [(ngModel)]="category" placeholder="Enter Category of Product">
+                                    </div>
+
+                                    <div class="form-group">
+                                      <label for="category">PRODUCT</label>
+                                      <input type="text" class="form-control" [(ngModel)]="product" placeholder="Enter the Name of Product">
+                                    </div>
+
+                                    <div class="form-group">
+                                      <label for="dop">DATE OF PUBLISHING</label>
+                                      <input type="date" class="form-control" [(ngModel)]="dop">
+                                    </div>
+
+                                    <div class="form-group">
+                                      <label for="description">DESCRIPTION</label>
+                                      <textarea class="form-control" [(ngModel)]="desc" placeholder="Enter Description about the Product" row="10" col="6"></textarea>
+                                    </div>
+
+                                    <div class="card-footer">
+                                    <button class="btn btn-primary" (click)="submitAdvt()">Submit</button>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            
+                            </div>
                           </div>
+                    </div>
+
+                    <div class="tab-pane" id="viewadd">
+
+
+                        <div class="container">
+                            <div class="row">
+                              <div *ngFor="let advt of advts" class="col-md-4">
+                                <a href="#"><div class="card m-2 bg-secondary text-white">
+                                  <div class="card-body">Category: {{advt.categoryadd}}</div>
+                                  <div class="card-footer">
+                                      <div>
+                                          <h6>Product: {{advt.product}}</h6>
+                                        </div>
+                                    <div>
+                                      <h6>Description: {{advt.description}}</h6>
+                                    </div>
+                                    <div>
+                                      <h6>Date of Publish: {{advt.dop}}</h6>
+                                    </div>
+                                  </div>
+                                </div></a>
+                              </div>
+                            </div>
+                          </div>
+
+
                     </div>
                     <div class="tab-pane" id="credits">Settings Tab.</div>
                 </div>
             </div>
             <div class="clearfix"></div>
-       
-      
-    </div>
-   <!-- <aside>
-      <div id="sidebar" class="nav-collapse ">
-      
-        <ul class="sidebar-menu" id="nav-accordion">
-            <li class="mt">
-                <a  href="index.html">
-                  <i class="fa fa-dashboard"></i>
-                  <span style="font-size: 20px">PROFILE</span>
-                  </a>
-              </li>     
-          <li class="mt">
-            <a  href="index.html">
-              <i class="fa fa-dashboard"></i>
-              <span style="font-size: 20px">CREATE ADD</span>
-              </a>
-          </li>
-
-          <li class="sub-menu">
-            <a routerLink="/profile">
-              <i class="fa fa-desktop"></i>
-              <span style="font-size: 20px">VIEW ADD</span>
-              </a>
-           
-          </li>
-          <li class="sub-menu">
-              <a routerLink="/profile">
-                <i class="fa fa-desktop"></i>
-                <span style="font-size: 20px">CREDITS</span>
-                </a>
-             
-            </li>
-          
-        </ul>
-        
-      </div>
-    </aside> -->
- <!-- <div class="carousal col-mds-4">
-  <mdb-carousel  [isControls]="true"  class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'"
-    [animation]="'slide'">
-    <mdb-carousel-item *ngFor="let item of slides; let i = index">
-      <div class="col-xs-4" [ngClass]="{'d-none d-md-block': cardIndex !== 0}" *ngFor="let card of item; let cardIndex = index">
-        <mdb-card class="my-1">
-          <mdb-card-img [src]="card.img" alt="Card image cap"></mdb-card-img>
-          <mdb-card-body>
-            <mdb-card-title>
-              <h4>{{card.title}}</h4>
-            </mdb-card-title>
-            <p>{{card.description}}</p>
-            <a href="#" mdbBtn color="primary" class="waves-light" mdbWavesEffect>{{card.buttonText}}</a>
-          </mdb-card-body>
-        </mdb-card>
-      </div>
-    </mdb-carousel-item>
-  </mdb-carousel>
-</div>  -->
 
 
-    <!-- <section class="carousel slide" data-ride="carousel" id="postsCarousel">
-    <div class="container">
-    <div class="row">
-    <div class="col-12 text-right mb-4">
-                    <a class="btn btn-outline-secondary prev" href="" title="go back"><i class="fa fa-lg fa-chevron-left"></i></a>&nbsp&nbsp
-                    <a class="btn btn-outline-secondary next" href="" title="more"><i class="fa fa-lg fa-chevron-right"></i></a>
-                </div>
     </div>
-    </div>
-    <div class="container p-t-0 m-t-2 carousel-inner">
-    <div class="row row-equal carousel-item active m-t-0">
-    <div class="col-sm-4">
-    <div class="card">
-    <div class="card-img-top card-img-top-250">
-                            <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg',
-                            {" alt="Carousel 1">
-                        </div>
-    <div class="card-block p-t-2">
-    <div class="card-header">
-    <h3>flower1</h3>
-    </div>
-    <div class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium animi molestias veritatis, pariatur dolorem error non reprehenderit vero, id. Incidunt hic laudantium soluta recusandae, voluptas libero et! Ipsa, maiores, ratione.</div>
-    </div>
-    </div>
-    </div>
-    <div class="col-sm-4">
-    <div class="card">
-    <div class="card-img-top card-img-top-250">
-                            <img class="img-fluid" src="" alt="Carousel 1">
-                        </div>
-    <div class="card-block p-t-2">
-    <div class="card-header">
-    <h3>flower2</h3>
-    </div>
-    <div class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium animi molestias veritatis, pariatur dolorem error non reprehenderit vero, id. Incidunt hic laudantium soluta recusandae, voluptas libero et! Ipsa, maiores, ratione.</div>
-    </div>
-    </div>
-    </div>
-    <div class="col-sm-4">
-    <div class="card">
-    <div class="card-img-top card-img-top-250">
-                            <img class="img-fluid" src="img/3d75927b210409af8582828c4049fcd0.jpg" alt="Carousel 1">
-                        </div>
-    <div class="card-block p-t-2">
-    <div class="card-header">
-    <h3>flower1</h3>
-    </div>
-    <div class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium animi molestias veritatis, pariatur dolorem error non reprehenderit vero, id. Incidunt hic laudantium soluta recusandae, voluptas libero et! Ipsa, maiores, ratione.</div>
-    </div>
-    </div>
-    </div>
-    </div>
-    <div class="row row-equal carousel-item m-t-0">
-    <div class="col-sm-4">
-    <div class="card">
-    <div class="card-img-top card-img-top-250">
-                            <img class="img-fluid" src="img/45590771a1ee18248a49bd399ef99bf1--posts.jpg" alt="Carousel 1">
-                        </div>
-    <div class="card-block p-t-2">
-    <div class="card-header">
-    <h3>flower1</h3>
-    </div>
-    <div class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium animi molestias veritatis, pariatur dolorem error non reprehenderit vero, id. Incidunt hic laudantium soluta recusandae, voluptas libero et! Ipsa, maiores, ratione.</div>
-    </div>
-    </div>
-    </div>
-    <div class="col-sm-4">
-    <div class="card">
-    <div class="card-img-top card-img-top-250">
-                            <img class="img-fluid" src="img/917d7b69ebd58d0ef0e561cdcb016303--red-rose-bouquet-red-rose-flower.jpg" alt="Carousel 1">
-                        </div>
-    <div class="card-block p-t-2">
-    <div class="card-header">
-    <h3>flower1</h3>
-    </div>
-    <div class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium animi molestias veritatis, pariatur dolorem error non reprehenderit vero, id. Incidunt hic laudantium soluta recusandae, voluptas libero et! Ipsa, maiores, ratione.</div>
-    </div>
-    </div>
-    </div>
-    <div class="col-sm-4">
-    <div class="card">
-    <div class="card-img-top card-img-top-250">
-                            <img class="img-fluid" src="img/29223655865_4b8b01989e.jpg" alt="Carousel 1">
-                        </div>
-    <div class="card-block p-t-2">
-    <div class="card-header">
-    <h3>flower1</h3>
-    </div>
-    <div class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium animi molestias veritatis, pariatur dolorem error non reprehenderit vero, id. Incidunt hic laudantium soluta recusandae, voluptas libero et! Ipsa, maiores, ratione.</div>
-    </div>
-    </div>
-    </div>
-    </div> 
-    </div>
-    </section>
-    <p><script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script><br />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script><br />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script><br />
-    <script>
-       (function($){
-         "use strict";
-         $('.next').click(function(){ $('.carousel').carousel('next');return false; });
-         $('.prev').click(function(){ $('.carousel').carousel('prev');return false; });
-       })	
-       (jQuery);
-    </script></p>
-    
-<!-- <section id="showcase">
-  
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-    
-      <div class="carousel-inner">
-          <div class="card">
-        <div class="carousel-item carousel-image-1 active">
-          <div class="container">
-            <div class="carousel-caption d-none d-sm-block mb-5">
-              <h1 class="display-3">Heading One</h1>
-              <p class="lead"></p>
-              <a href="#" class="btn btn-primary btn-lg">Learn More</a>
-            </div>
-          </div>
-        </div></div>
- 
-        <div class="card">
-            <div class="carousel-item carousel-image-2">
-          <div class="container">
-            <div class="carousel-caption d-none d-sm-block mb-5">
-              <h1 class="display-3">Heading Two</h1>
-              <p class="lead"></p>
-              <a href="#" class="btn btn-primary btn-lg">Learn More</a>
-            </div>
-          </div>
-        </div></div>
- 
-        <div class="card">
-            <div class="carousel-item carousel-image-3">
-          <div class="container">
-            <div class="carousel-caption d-none d-sm-block text-right mb-5">
-              <h1 class="display-3">Heading Three</h1>
-              <p class="lead"></p>
-              <a href="#" class="btn btn-success btn-lg">Learn More</a>
-            </div>
-          </div>
-        </div>
-      </div></div>
- 
-      <a href="#myCarousel" data-slide="prev" class="carousel-control-prev">
-        <span class="carousel-control-prev-icon"></span>
-      </a>
- 
-      <a href="#myCarousel" data-slide="next" class="carousel-control-next">
-        <span class="carousel-control-next-icon"></span>
-      </a>
-    </div>
-  </section> -->
- -->
-  <!-- <div class="row">
-      <div class="col-sm-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-      
-    </div> -->
-    
+
   </body>
 </html>
 
