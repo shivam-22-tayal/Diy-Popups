@@ -30,24 +30,25 @@
 
         <div class="container-fluid">
                 <div class="row content">
-        <div class="col-sm-3 sidenav" style="margin-top:56px;">
+        <div class="col-sm-3 sidenav" style="margin-top:56px;" aria-orientation="vertical">
                 <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search Blog..">
+                        <input type="text" class="form-control" placeholder="Search">
                         <span class="input-group-btn">
                           <button class="btn btn-default" type="button">
                             <span class="glyphicon glyphicon-search"></span>
                           </button>
                         </span>
                       </div><br>
-                <ul class="nav">
-                  <li ><a data-toggle="tab" href="#home">Home</a></li>
-                  <li><a data-toggle="tab" href="#profile">Profile</a></li>
-                  <li><a data-toggle="tab" href="#r">Rewards</a></li>
-                </ul><br>
+                <ul class="nav nav-tabs">
+                  <li ><a class="nav-link active" data-toggle="tab" href="#home" aria-selected="true">Home</a></li>
+                  <li><a class="nav-link" data-toggle="tab" href="#profile" aria-selected="false">Profile</a></li>
+                  <li><a class="nav-link" data-toggle="tab" href="#r" aria-selected="false">Rewards</a>
+                  </li>
+                </ul>
               
               </div></div></div>
 
-        <nav class=" navbar-custom  mr-auto navbar navbar-expand-lg " style="  background-color: chocolate;
+        <nav class=" navbar-custom  mr-auto navbar navbar-expand-lg " style="  background-color: rgb(8, 8, 8);
         ">
     <!-- <ul class="nav  mr-auto ">
           <li class="active"><a data-toggle="tab" href="#home">HOME</a></li>

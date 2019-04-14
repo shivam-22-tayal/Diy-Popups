@@ -29,7 +29,7 @@ body {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color:black;
+  background-color:rgb(41, 53, 44);
   overflow-x: hidden;
   padding-top: 20px;
 }
