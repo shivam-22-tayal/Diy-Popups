@@ -22,9 +22,11 @@ public class Advertisement implements Serializable {
 	@Column(name="id")
 	private int id;
 	
-	
 	@Column(name="categoryadd")
 	private String categoryadd;
+	
+	@Column(name="product")
+	private String product;
 	
 	@Column(name="dop")
 	private String dop;
@@ -48,6 +50,15 @@ public class Advertisement implements Serializable {
 		this.categoryadd = categoryadd;
 	}
 
+	public String getProduct() {
+		return product;
+	}
+
+	public void setProduct(String product) {
+		this.product = product;
+	}
+
+	
 	public String getDop() {
 		return dop;
 	}

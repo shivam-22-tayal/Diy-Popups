@@ -9,5 +9,4 @@ public interface AdvertisementService {
 	List<Advertisement> getAllAdvertisement();
     Advertisement getAdvertisementById(int advtId);
 	boolean addAdvertisement(Advertisement advt);
-	
 }

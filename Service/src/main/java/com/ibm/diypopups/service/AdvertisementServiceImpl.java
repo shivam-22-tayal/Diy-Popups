@@ -25,7 +25,7 @@ public class AdvertisementServiceImpl implements AdvertisementService{
 	
 		return true;
 	}
-
+	
 
 	@Override
 	public List<Advertisement> getAllAdvertisement() {
@@ -40,5 +40,6 @@ public class AdvertisementServiceImpl implements AdvertisementService{
 		Advertisement obj = dpDAO.getAdvertisementById(advtId);
 		return obj;
 	}
+
 
 }

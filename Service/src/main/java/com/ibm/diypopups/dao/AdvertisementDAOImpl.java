@@ -1,30 +1,30 @@
 package com.ibm.diypopups.dao;
 
+
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ibm.diypopups.model.Advertisement;
 
 @Transactional
 @Repository
-public class AdvertisementDAOImpl implements AdvertisementDAO{
 
+public class AdvertisementDAOImpl implements AdvertisementDAO{
+	
 	@PersistenceContext	
 	private EntityManager entityManager;	
-	
-	
+
 	@Override
 	public void addAdvertisement(Advertisement advt) {
 		// TODO Auto-generated method stub
 		entityManager.persist(advt);
 	}
-
-
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Advertisement> getAllAdvertisement() {
@@ -39,8 +39,5 @@ public class AdvertisementDAOImpl implements AdvertisementDAO{
 		// TODO Auto-generated method stub
 		return entityManager.find(Advertisement.class, advtId);
 	}
-
 	
-	
-
 }
