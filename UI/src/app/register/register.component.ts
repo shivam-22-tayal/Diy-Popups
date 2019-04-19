@@ -6,6 +6,9 @@ import { first } from 'rxjs/operators';
 import { UserService } from '../_services/user.service';
 import { AuthenticationService } from '../_services/authentication.service';
 import { AlertService } from '../_services/alert.service';
+import { EndUserLinkService } from '../end-user-link.service';
+import { StoreUidService } from '../store-uid.service';
+import { EndUserService } from '../end-user.service';
 
 @Component({
     selector: 'app-register',
@@ -22,14 +25,16 @@ export class RegisterComponent implements OnInit {
         private router: Router,
         private authenticationService: AuthenticationService,
         private userService: UserService,
-        private alertService: AlertService
+        private alertService: AlertService,
+        private eul: EndUserLinkService,
+        private euid: StoreUidService
     ) {
         // redirect to home if already logged in
         if (this.authenticationService.currentUserValue) {
             this.router.navigate(['/']);
         }
     }
-
+    euser: EndUserService;
     ngOnInit() {
         this.registerForm = this.formBuilder.group({
             firstName: ['', Validators.required],
@@ -55,16 +60,18 @@ export class RegisterComponent implements OnInit {
         }
 
         this.loading = true;
-        this.userService.register(this.registerForm.value)
+        this.eul.createEndUser(this.registerForm.value)
             .pipe(first())
             .subscribe(
                 data => {
                     this.alertService.success('Registration successful', true);
-                    this.router.navigate(['/landingpage']);
+                    // this.router.navigate(['/user-dashboard']);
                 },
                 error => {
                     this.alertService.error(error);
                     this.loading = false;
                 });
+        this.eul.findId(this.registerForm.value).subscribe(data => this.euid.uId = data);
+        this.router.navigate(['/user-dashboard']);
     }
 }

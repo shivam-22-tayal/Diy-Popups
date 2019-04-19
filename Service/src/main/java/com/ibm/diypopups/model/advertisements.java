@@ -10,30 +10,43 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="advertisements")
 
-public class Advertisement implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+public class advertisements
+{
+
+	//private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue
 	
-	@Column(name="id")
+	//@Column(name="id")
 	private int id;
 	
-	@Column(name="categoryadd")
+	
+	//@Column(name="categoryadd")
 	private String categoryadd;
 	
-	@Column(name="product")
+	//@Column(name="product")
 	private String product;
 	
-	@Column(name="dop")
+	//@Column(name="dop")
 	private String dop;
 	
-	@Column(name="description")
+	//@Column(name="description")
 	private String description;
 	
+	private int clicks;
+	private int eid;
+	
+	public int getEid() {
+		return eid;
+	}
+
+	public void setEid(int eid) {
+		this.eid = eid;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -74,5 +87,13 @@ public class Advertisement implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}	
+	public int getClicks() {
+		return clicks;
+	}
+
+	public void setClicks(int clicks) {
+		this.clicks = clicks;
+	}
+
 	
 }

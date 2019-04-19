@@ -26,8 +26,7 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
     RegisterComponent,
     HomeComponent,
     OwnerDashboardComponent,
-    UserDashboardComponent,
-    
+    UserDashboardComponent
   ],
   imports: [
     BrowserModule,

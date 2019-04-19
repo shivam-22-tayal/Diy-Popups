@@ -11,40 +11,64 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.ibm.diypopups.model.Advertisement;
-import com.ibm.diypopups.service.AdvertisementService;
+import com.ibm.diypopups.dao.AdvertisementDAOImpl;
+import com.ibm.diypopups.model.advertisements;
 
-@Controller
+
+@RestController
 @CrossOrigin(origins = "*")
+@RequestMapping("/advertisements")
 public class AdvertisementController {
 
 	@Autowired
-	private AdvertisementService dpService;
-	
-	@GetMapping("status")
+	//private AdvertisementService dpService;
+	private AdvertisementDAOImpl adrepo;
+	//@GetMapping("status")
+	@GetMapping("/status")
 	public ResponseEntity<String> status(){
 		return new ResponseEntity<String>("Services running", HttpStatus.OK);
 	}
 		
-	@GetMapping("advt/{id}")
-	public ResponseEntity<Advertisement> getAdvertisementById(@PathVariable("id") Integer id) {
-		Advertisement avt = dpService.getAdvertisementById(id);
-		return new ResponseEntity<Advertisement>(avt, HttpStatus.OK);
+	//@GetMapping("advt/{id}")
+	@GetMapping("/{id}")
+	public ResponseEntity<advertisements> getAdvertisementById(@PathVariable("id") Integer id) {
+		//Advertisement avt = dpService.getAdvertisementById(id);
+		advertisements avt=adrepo.getAdvertisementById(id);
+		return new ResponseEntity<advertisements>(avt, HttpStatus.OK);
 	}
-	@GetMapping("advts")
-	public ResponseEntity<List<Advertisement>> getAllAdvertisement() {
-		List<Advertisement> list = dpService.getAllAdvertisement();
-		return new ResponseEntity<List<Advertisement>>(list, HttpStatus.OK);
+	//@GetMapping("advts")
+	@GetMapping
+	public ResponseEntity<List<advertisements>> getAllAdvertisement() {
+		List<advertisements> list = adrepo.getAllAdvertisement();
+		return new ResponseEntity<List<advertisements>>(list, HttpStatus.OK);
 	}
 	
 	
-	@PostMapping("advt")
-	public ResponseEntity<Void> addAdvertisement(@RequestBody Advertisement advt) {
-		boolean flag = dpService.addAdvertisement(advt);
+	//@PostMapping("advt")
+	@PostMapping
+	public ResponseEntity<Void> addAdvertisement(@RequestBody advertisements advt) {
+		boolean flag = adrepo.addAdvertisement(advt);
 		if (flag == false) {
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		}
 			return new ResponseEntity<Void>(HttpStatus.CREATED);
 		}	
+	
+	@CrossOrigin(origins="*")
+	@GetMapping("/{id}/clicks")
+
+	public boolean clickify(@PathVariable int id) {
+		
+		adrepo.UpdateClick(id);
+		return true;
+	}
+	@CrossOrigin(origins="*")
+	@GetMapping("/AdId")
+	public int getAdId(@RequestBody advertisements ad ) {
+		
+		return ad.getId();
+	}
 }

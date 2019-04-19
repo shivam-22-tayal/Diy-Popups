@@ -210,6 +210,7 @@
           <div class="container">
             <div class="row">
               <div *ngFor="let advt of advts" class="col-md-4">
+                  <button (click)="clickCount(advt.id)">
                 <a href="#">
                   <div class="card m-2 bg-secondary text-white">
                     <div class="card-body">Category: {{advt.categoryadd}}</div>
@@ -226,6 +227,7 @@
                     </div>
                   </div>
                 </a>
+                </button>
               </div>
             </div>
           </div>
@@ -243,3 +245,6 @@
 </body>
 
 </html>
+
+   
+
